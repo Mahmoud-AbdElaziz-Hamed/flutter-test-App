@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_new_app/models/question_model.dart';
 
 class Questions extends StatelessWidget {
-  final List<Map<String, dynamic>> questions;
+  final List<Question> questions;
   final int questionIndex;
   const Questions({
     Key? key,
@@ -14,10 +15,10 @@ class Questions extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       width: double.infinity,
-      margin: const EdgeInsets.only(top: 20, bottom: 20),
+      margin: const EdgeInsets.symmetric(vertical: 20),
       child: Text(
-        questions[questionIndex]["questionText"],
-        style: const TextStyle(fontSize: 32),
+        questions[questionIndex].questionText,
+        style: TextStyle(fontSize: MediaQuery.of(context).size.width * 0.04),
       ),
     );
   }

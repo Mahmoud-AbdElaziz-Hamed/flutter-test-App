@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_new_app/models/question_model.dart';
 
 class Answers extends StatelessWidget {
-  final List<Map<String, dynamic>> questions;
+  final List<Question> questions;
   final int questionIndex;
   final Function(String) handleClick;
   const Answers({
@@ -13,9 +14,7 @@ class Answers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      ...(questions[questionIndex]["answers"] as Map<String, String>)
-          .entries
-          .map(
+      ...(questions[questionIndex].answers).entries.map(
             (e) => Container(
               width: double.infinity,
               alignment: Alignment.center,
@@ -25,7 +24,11 @@ class Answers extends StatelessWidget {
                 style: ButtonStyle(
                     minimumSize: MaterialStateProperty.all(
                         const Size(double.infinity, 50))),
-                child: Text(e.value),
+                child: Text(
+                  e.value,
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.02),
+                ),
               ),
             ),
           )
