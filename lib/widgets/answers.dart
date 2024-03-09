@@ -14,24 +14,24 @@ class Answers extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      ...(questions[questionIndex].answers).entries.map(
-            (e) => Container(
-              width: double.infinity,
-              alignment: Alignment.center,
-              margin: const EdgeInsets.all(10),
-              child: ElevatedButton(
-                onPressed: () => handleClick(e.value),
-                style: ButtonStyle(
-                    minimumSize: MaterialStateProperty.all(
-                        const Size(double.infinity, 50))),
-                child: Text(
-                  e.value,
-                  style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width * 0.02),
-                ),
-              ),
+      ...(questions[questionIndex].answers).map(
+        (answer) => Container(
+          width: double.infinity,
+          alignment: Alignment.center,
+          margin: const EdgeInsets.all(10),
+          child: ElevatedButton(
+            onPressed: () => handleClick(answer.textAnswer),
+            style: ButtonStyle(
+                minimumSize:
+                    MaterialStateProperty.all(const Size(double.infinity, 50))),
+            child: Text(
+              answer.textAnswer,
+              style:
+                  TextStyle(fontSize: MediaQuery.of(context).size.width * 0.02),
             ),
-          )
+          ),
+        ),
+      )
     ]);
   }
 }

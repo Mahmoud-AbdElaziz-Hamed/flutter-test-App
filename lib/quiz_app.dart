@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_new_app/models/answer_model.dart';
+import 'package:flutter_new_app/models/score_model.dart';
 import 'package:flutter_new_app/widgets/after_finish_quiz.dart';
 import 'package:flutter_new_app/widgets/answers.dart';
 import 'package:flutter_new_app/models/question_model.dart';
@@ -16,23 +18,50 @@ class _MyAppState extends State<QuizApp> {
 
   final List<Question> questions = [
     Question(
-        questionText: "What is your favorite colour?",
-        answers: {"1": "white", "2": "black", "3": "red"},
-        score: {"white": 5, "black": 1, "red": 3}),
+      questionText: "What is your favorite colour?",
+      answers: [
+        Answer(id: 1, textAnswer: "white"),
+        Answer(id: 2, textAnswer: "black"),
+        Answer(id: 3, textAnswer: "red"),
+      ],
+      score: [
+        Score(answer: "white", score: 5),
+        Score(answer: "black", score: 1),
+        Score(answer: "red", score: 3),
+      ],
+    ),
     Question(
-        questionText: "What is your favorite sport?",
-        answers: {"1": "running", "2": "swimming", "3": "boxing"},
-        score: {"running": 5, "swimming": 5, "boxing": 3}),
+      questionText: "What is your favorite sport?",
+      answers: [
+        Answer(id: 1, textAnswer: "running"),
+        Answer(id: 2, textAnswer: "swimming"),
+        Answer(id: 3, textAnswer: "boxing"),
+      ],
+      score: [
+        Score(answer: "running", score: 5),
+        Score(answer: "swimming", score: 7),
+        Score(answer: "boxing", score: 3),
+      ],
+    ),
     Question(
-        questionText: "What is your favorite weather?",
-        answers: {"1": "summer", "2": "winter", "3": "spring"},
-        score: {"summer": 1, "winter": 5, "spring": 3})
+      questionText: "What is your favorite weather?",
+      answers: [
+        Answer(id: 1, textAnswer: "summer"),
+        Answer(id: 2, textAnswer: "winter"),
+        Answer(id: 3, textAnswer: "spring"),
+      ],
+      score: [
+        Score(answer: "summer", score: 5),
+        Score(answer: "winter", score: 7),
+        Score(answer: "spring", score: 3),
+      ],
+    )
   ];
 
   void handleAnswerClick(String answer) {
     setState(() {
       if (questionIndex < questions.length) {
-        score += questions[questionIndex].score[answer]!;
+        score += questions[questionIndex].score[questionIndex].score;
         questionIndex += 1;
       }
     });
