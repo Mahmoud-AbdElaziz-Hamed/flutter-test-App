@@ -11,36 +11,36 @@ class QuizApp extends StatefulWidget {
 }
 
 enum Color {
-  answer1(textAnswer: "white", score: 10),
-  answer2(textAnswer: "black", score: 1),
-  answer3(textAnswer: "red", score: 8);
+  white(text: "white", score: 10),
+  black(text: "black", score: 1),
+  red(text: "red", score: 8);
 
-  final String textAnswer;
+  final String text;
   final int score;
 
-  const Color({required this.textAnswer, required this.score});
+  const Color({required this.text, required this.score});
 }
 
 enum Sports {
-  answer1(textAnswer: "running", score: 10),
-  answer2(textAnswer: "swimming", score: 8),
-  answer3(textAnswer: " boxing", score: 5);
+  running(text: "running", score: 10),
+  swimming(text: "swimming", score: 8),
+  boxing(text: "boxing", score: 5);
 
-  final String textAnswer;
+  final String text;
   final int score;
 
-  const Sports({required this.textAnswer, required this.score});
+  const Sports({required this.text, required this.score});
 }
 
 enum Weather {
-  answer1(textAnswer: " summer", score: 1),
-  answer2(textAnswer: " winter", score: 10),
-  answer3(textAnswer: " spring", score: 5);
+  summer(text: "summer", score: 1),
+  winter(text: "winter", score: 10),
+  spring(text: "spring", score: 5);
 
-  final String textAnswer;
+  final String text;
   final int score;
 
-  const Weather({required this.textAnswer, required this.score});
+  const Weather({required this.text, required this.score});
 }
 
 class _MyAppState extends State<QuizApp> {
@@ -51,40 +51,40 @@ class _MyAppState extends State<QuizApp> {
     Question(
       questionText: "What is your favorite colour?",
       answers: [
-        Color.answer1.textAnswer,
-        Color.answer2.textAnswer,
-        Color.answer3.textAnswer,
+        Color.white.text,
+        Color.black.text,
+        Color.red.text,
       ],
       score: [
-        Color.answer1.score,
-        Color.answer2.score,
-        Color.answer3.score,
+        Color.white.score,
+        Color.black.score,
+        Color.red.score,
       ],
     ),
     Question(
       questionText: "What is your favorite sport?",
       answers: [
-        Sports.answer1.textAnswer,
-        Sports.answer2.textAnswer,
-        Sports.answer3.textAnswer,
+        Sports.running.text,
+        Sports.swimming.text,
+        Sports.boxing.text,
       ],
       score: [
-        Sports.answer1.score,
-        Sports.answer2.score,
-        Sports.answer3.score,
+        Sports.running.score,
+        Sports.swimming.score,
+        Sports.boxing.score,
       ],
     ),
     Question(
       questionText: "What is your favorite weather?",
       answers: [
-        Weather.answer1.textAnswer,
-        Weather.answer2.textAnswer,
-        Weather.answer3.textAnswer,
+        Weather.summer.text,
+        Weather.winter.text,
+        Weather.spring.text,
       ],
       score: [
-        Weather.answer1.score,
-        Weather.answer2.score,
-        Weather.answer3.score,
+        Weather.summer.score,
+        Weather.winter.score,
+        Weather.spring.score,
       ],
     )
   ];
